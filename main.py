@@ -19,5 +19,7 @@ def add(things):
         a += 1
     file.close()
     print(todo)
+def clear():
+    open('todolist.txt', 'w').close()
 if __name__ == '__main__':
     fire.Fire()
