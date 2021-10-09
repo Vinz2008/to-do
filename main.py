@@ -8,7 +8,7 @@ def add(things):
 	    lines = f.readlines()
     for l in lines:
         todo.append(l.replace("\n", ""))
-    print(todo)
+    
     todo.append(things)
     open('todolist.txt', 'w').close()
     file=open('todolist.txt','a')
@@ -18,7 +18,8 @@ def add(things):
         file.writelines(linewrite+ "\n")
         a += 1
     file.close()
-    print(todo)
+    for i in todo:
+    	print(i)
 def clear():
     open('todolist.txt', 'w').close()
 if __name__ == '__main__':
