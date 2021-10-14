@@ -22,5 +22,26 @@ def add(things):
     	print(i)
 def clear():
     open('todolist.txt', 'w').close()
+def delete(nb_del):
+    with open("todolist.txt", "r") as fd:
+            lines = fd.readlines()
+    for l in lines:
+        todo.append(l.replace("\n", ""))
+    if isinstance(nb_del, int) == True:
+        nb_del = int(nb_del)
+        del todo[nb_del]
+    else:
+        try:
+            todo.remove(nb_del)
+        except:
+            print("This thing is not in the list")
+    open('todolist.txt', 'w').close()
+    b = 0
+    fd=open('todolist.txt','a')   
+    for items in todo:
+        linewrite = str(todo[b])
+        fd.writelines(linewrite+ "\n")
+        b += 1
+    fd.close()
 if __name__ == '__main__':
     fire.Fire()
