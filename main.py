@@ -43,5 +43,12 @@ def delete(nb_del):
         fd.writelines(linewrite+ "\n")
         b += 1
     fd.close()
+def list():
+    with open("todolist.txt", "r") as f:
+	    lines = f.readlines()
+    for l in lines:
+        todo.append(l.replace("\n", ""))
+    for c in todo:
+        print(c)
 if __name__ == '__main__':
     fire.Fire()
