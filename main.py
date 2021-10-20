@@ -21,8 +21,15 @@ def add(things):
     for i in todo:
     	print(i)
 def clear():
+    '''
+    Clear everything in the todolist
+    '''
     open('todolist.txt', 'w').close()
+
 def delete(nb_del):
+    '''
+    delete a thing to do
+    '''
     with open("todolist.txt", "r") as fd:
             lines = fd.readlines()
     for l in lines:
@@ -44,6 +51,9 @@ def delete(nb_del):
         b += 1
     fd.close()
 def list():
+    '''
+    list all the things in the todolist
+    '''
     with open("todolist.txt", "r") as f:
 	    lines = f.readlines()
     for l in lines:
@@ -52,6 +62,9 @@ def list():
         print(c)
 
 def reverse():
+    '''
+    Reverse the order of the things to do
+    '''
     with open("todolist.txt", "r") as f:
             lines = f.readlines()
     for l in lines:
@@ -67,3 +80,4 @@ def reverse():
     file.close()
 if __name__ == '__main__':
     fire.Fire()
+
