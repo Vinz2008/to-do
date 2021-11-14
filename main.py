@@ -1,17 +1,19 @@
 import fire
+import os
+path = os.path.expanduser('~') + "/.todo/todolist.txt"
 todo = []
 def add(things):
     '''
     Add things to do
     '''
-    with open("~/.todo/todolist.txt", "r") as f:
+    with open(path, "r") as f:
 	    lines = f.readlines()
     for l in lines:
         todo.append(l.replace("\n", ""))
     
     todo.append(things)
-    open('~/.todo/todolist.txt', 'w').close()
-    file=open('~/.todo/todolist.txt','a')
+    open(path, 'w').close()
+    file=open(path,'a')
     a = 0
     for items in todo:
         linewrite = str(todo[a])
@@ -24,13 +26,13 @@ def clear():
     '''
     Clear everything in the todolist
     '''
-    open('~/.todo/todolist.txt', 'w').close()
+    open(path, 'w').close()
 
 def delete(nb_del):
     '''
     delete a thing to do
     '''
-    with open("~/.todo/todolist.txt", "r") as fd:
+    with open(path, "r") as fd:
             lines = fd.readlines()
     for l in lines:
         todo.append(l.replace("\n", ""))
@@ -42,9 +44,9 @@ def delete(nb_del):
             todo.remove(nb_del)
         except:
             print("This thing is not in the list")
-    open('~/.todo/todolist.txt', 'w').close()
+    open(path, 'w').close()
     b = 0
-    fd=open('~/.todo/todolist.txt','a')   
+    fd=open(path,'a')   
     for items in todo:
         linewrite = str(todo[b])
         fd.writelines(linewrite+ "\n")
@@ -54,7 +56,7 @@ def list():
     '''
     list all the things in the todolist
     '''
-    with open("~/.todo/todolist.txt", "r") as f:
+    with open(path, "r") as f:
 	    lines = f.readlines()
     for l in lines:
         todo.append(l.replace("\n", ""))
@@ -65,13 +67,13 @@ def reverse():
     '''
     Reverse the order of the things to do
     '''
-    with open("~/.todo/todolist.txt", "r") as f:
+    with open(path, "r") as f:
             lines = f.readlines()
     for l in lines:
         todo.insert(0,l.replace("\n", ""))
 
-    open('~/.todo/todolist.txt', 'w').close()
-    file=open('~/.todo/todolist.txt','a')
+    open(path, 'w').close()
+    file=open(path,'a')
     a = 0
     for items in todo:
         linewrite = str(todo[a])
