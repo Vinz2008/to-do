@@ -4,14 +4,14 @@ def add(things):
     '''
     Add things to do
     '''
-    with open("todolist.txt", "r") as f:
+    with open("~/.todo/todolist.txt", "r") as f:
 	    lines = f.readlines()
     for l in lines:
         todo.append(l.replace("\n", ""))
     
     todo.append(things)
-    open('todolist.txt', 'w').close()
-    file=open('todolist.txt','a')
+    open('~/.todo/todolist.txt', 'w').close()
+    file=open('~/.todo/todolist.txt','a')
     a = 0
     for items in todo:
         linewrite = str(todo[a])
@@ -24,13 +24,13 @@ def clear():
     '''
     Clear everything in the todolist
     '''
-    open('todolist.txt', 'w').close()
+    open('~/.todo/todolist.txt', 'w').close()
 
 def delete(nb_del):
     '''
     delete a thing to do
     '''
-    with open("todolist.txt", "r") as fd:
+    with open("~/.todo/todolist.txt", "r") as fd:
             lines = fd.readlines()
     for l in lines:
         todo.append(l.replace("\n", ""))
@@ -42,9 +42,9 @@ def delete(nb_del):
             todo.remove(nb_del)
         except:
             print("This thing is not in the list")
-    open('todolist.txt', 'w').close()
+    open('~/.todo/todolist.txt', 'w').close()
     b = 0
-    fd=open('todolist.txt','a')   
+    fd=open('~/.todo/todolist.txt','a')   
     for items in todo:
         linewrite = str(todo[b])
         fd.writelines(linewrite+ "\n")
@@ -54,7 +54,7 @@ def list():
     '''
     list all the things in the todolist
     '''
-    with open("todolist.txt", "r") as f:
+    with open("~/.todo/todolist.txt", "r") as f:
 	    lines = f.readlines()
     for l in lines:
         todo.append(l.replace("\n", ""))
@@ -65,13 +65,13 @@ def reverse():
     '''
     Reverse the order of the things to do
     '''
-    with open("todolist.txt", "r") as f:
+    with open("~/.todo/todolist.txt", "r") as f:
             lines = f.readlines()
     for l in lines:
         todo.insert(0,l.replace("\n", ""))
 
-    open('todolist.txt', 'w').close()
-    file=open('todolist.txt','a')
+    open('~/.todo/todolist.txt', 'w').close()
+    file=open('~/.todo/todolist.txt','a')
     a = 0
     for items in todo:
         linewrite = str(todo[a])
